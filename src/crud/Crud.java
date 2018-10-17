@@ -71,9 +71,10 @@ public class Crud {
      */
     
     // should be string return type
-    String deleteProduct(String item, int count) {
-        product_name.remove(item);
-        product_count.remove(count);
+    String deleteProduct(String item) {
+        int index = product_name.indexOf(item);
+        product_name.remove(index);
+        product_count.remove(index);
         
         return "Deleted file successfully";
     }
@@ -96,13 +97,13 @@ public class Crud {
         inv.product_count.add(5);
         
         
-        inv.addNewProduct("Ukelele", 5);
-        // inv.updateProductCount("drums", 5);
-        // inv.deleteProduct("Ukelele", 6);
-        
+        //inv.addNewProduct("Ukelele", 5);
+        inv.updateProductCount("drums", 8);
+        //inv.deleteProduct("Ukelele");
         System.out.println("Items: " + inv.product_name);
         System.out.println("Count: " + inv.product_count);
-        System.out.println("Total Products Count: " + inv.getTotalProductsCount());
+        System.out.println("Count: " + inv.getProductCount("drums"));
+        //System.out.println("Total Products Count: " + inv.getTotalProductsCount());
     }
 
 }
